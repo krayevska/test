@@ -13,7 +13,13 @@
 <body>
   Hello
  <script>
-    const parser = new DOMParser(); const content = '<div><p>Rututu</p></div>';  const doc = parser.parseFromString(content, 'text/html'); document.body.innerHTML = doc ;
+    const parser = new DOMParser();
+const wrapperId = 'r';
+    const content = `<div id="${wrapperId}"></div>`;
+    const doc = parser.parseFromString(content, 'text/html');
+    const result = doc.getElementById(wrapperId).childNodes;
+   
+   document.body.innerHTML += JSON.stringify(result)
   </script>
 </body>
 </html>
